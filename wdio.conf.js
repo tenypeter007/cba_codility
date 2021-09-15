@@ -25,14 +25,12 @@ exports.config = {
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: true,
         useCucumberStepReporter : true
-    }],
-    ['junit', {
+    }],['junit', {
         outputDir: './junit-results',
         outputFileFormat: function(options) { // optional
             return `results-${options.cid}.${options.capabilities}.xml`
         }
     }]
-
 ],
 
     afterStep: function (test, scenario, { error, duration, passed }) {
