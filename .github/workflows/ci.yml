@@ -1,23 +1,19 @@
-name: CI
+name: Responsive Fight Test
 on: [push, pull_request]
 jobs:
-  build:
+  UI-test:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
           uses: actions/checkout@v2
-        - name: Install
-          uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
+        - name: Install Node
+          uses: actions/setup-node@v2
           with:
-            args: npm install
+           node-version: 12
+        - name: Install Npm Dependencies
+          run : npm install
         - name: UI Test
-          uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
-          with:
-            args: npm run test-ui
-        - name: API Test
-          uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
-          with:
-            args: npm run test-api   
+          run : npm run test-ui
         - name: Publish Unit Test Results
           uses: EnricoMi/publish-unit-test-result-action/composite@v1
           if: always()
@@ -28,4 +24,19 @@ jobs:
           with:
             name: allure-results
             path: allure-results
+          
+  API-test:
+          runs-on: ubuntu-latest
+          steps:
+           - name: Checkout
+             uses: actions/checkout@v2
+           - name: Install Node
+             uses: actions/setup-node@v2
+             with:
+               node-version: 12
+           - name: Install Npm Dependencies
+             run : npm install
+           - name: API Test
+             run : npm run test-api 
+        
  
