@@ -14,6 +14,7 @@ class HomePage extends Page
     
     async startChallenge()
     {
+        await this.btnStart.waitForClickable({ timeout: 5000 });
         await this.btnStart.click();
     }
 }
