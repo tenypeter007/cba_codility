@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: cimg/node:16.8.0
+      - image: circleci/node:jessie-browsers
     steps:
       - checkout
       - run:
