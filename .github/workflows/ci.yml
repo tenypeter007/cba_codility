@@ -19,7 +19,7 @@ jobs:
           if: always()
           with:
              files: junit-results/**/*.xml 
-             name : "UI Test Result"
+             check_name : "UI Test Result"
         - uses: actions/upload-artifact@v1
           if: failure()
           with:
