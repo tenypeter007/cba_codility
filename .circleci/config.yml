@@ -1,20 +1,33 @@
-version: 2.1
-executors:
-  my-custom-executor:
-    docker:
-      - image: cimg/node:lts
-      
+version: 2
 jobs:
-  run-my-test:
-
-    executor: my-custom-executor
+  test:
+    docker:
+      - image: circleci/node:jessie-browsers
     steps:
       - checkout
-      - run: |
-          npm install
-          npm test
-
+      - run:
+          name: Make Report Directory
+          command: mkdir report
+      - run:
+          name: Download Selenium Standalone Server
+          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      - run:
+          name: Start Selenium Standalone Server
+          command: java -jar selenium-server-standalone-3.5.3.jar -log report/selenium.log
+          background: true
+      - run:
+          name: Install Node Modules
+          command: npm install
+      - run:
+          name: Execute ESlint Check
+          command: npm run eslint-check
+      - run:
+          name: Test
+          command: npm test
+      - store_test_results:
+          path: report
 workflows:
-  my-custom-workflow:
+  version: 2
+  test:
     jobs:
-      - run-my-test
+      - test
