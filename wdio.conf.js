@@ -87,7 +87,7 @@ exports.config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
          'goog:chromeOptions': {
-            args: ['--headless', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage --window-size=1920,1080', '--disable-translate', '--disable-extensions', '--disable-background-networking', '--disable-sync', '--disable-default-apps', '--mute-audio', '--no-first-run', '--disable-prompt-on-repost']
+            args: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage --window-size=1920,1080', '--disable-translate', '--disable-extensions', '--disable-background-networking', '--disable-sync', '--disable-default-apps', '--mute-audio', '--no-first-run', '--disable-prompt-on-repost']
         }
     }],
     //
