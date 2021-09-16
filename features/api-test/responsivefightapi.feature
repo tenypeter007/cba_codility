@@ -4,7 +4,7 @@ Feature: Responsive Fight API Test
     Given I make a POST request to /v1/user
       And I set body to
       """
-      username=dasss&score=0
+      username=kate&score=0
       """
      When I receive a response
      Then I expect response should have a status 201
