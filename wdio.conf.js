@@ -38,6 +38,10 @@ exports.config = {
           browser.takeScreenshot();
         }
       },
+      afterScenario: function (scenario) {
+        console.log("After scenario, reload session!");
+        browser.reload();
+      },
 
   
 
