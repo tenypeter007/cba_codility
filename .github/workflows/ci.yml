@@ -14,7 +14,7 @@ jobs:
           run : npm install
         - name: UI Test
           run : npm run test-ui
-        - name: Publish Unit Test Results
+        - name: UI Test Result
           uses: EnricoMi/publish-unit-test-result-action/composite@v1
           if: always()
           with:
@@ -38,7 +38,7 @@ jobs:
              run : npm install
            - name: API Test
              run : npm run test-api 
-           - name: Cucumber Report to Annotations
+           - name: API Test Result
              if: ${{ always() }}
              uses: deblockt/cucumber-report-annotations-action@v1.7
              with:
