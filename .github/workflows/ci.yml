@@ -38,5 +38,10 @@ jobs:
              run : npm install
            - name: API Test
              run : npm run test-api 
+           - name: Cucumber Report to Annotations
+             uses: deblockt/cucumber-report-annotations-action@v1.7
+             with:
+               path: "**/cucumber-report.json"
+        
         
  
