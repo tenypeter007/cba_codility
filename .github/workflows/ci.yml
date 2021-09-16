@@ -10,10 +10,14 @@ jobs:
           uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
           with:
             args: npm install
-        - name: Test
+        - name: UI Test
           uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
           with:
-            args: npm run test
+            args: npm run test-ui
+        - name: API Test
+          uses: ianwalter/puppeteer-container@afefc4bee7341a77baa94503da684e2895ea5d30
+          with:
+            args: npm run test-api   
         - name: Publish Unit Test Results
           uses: EnricoMi/publish-unit-test-result-action/composite@v1
           if: always()
