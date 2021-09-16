@@ -81,16 +81,15 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
-        acceptInsecureCerts: true,
+        browserName: 'firefox',
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-         'goog:chromeOptions': {
-            args: ['--headless', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage --window-size=1920,1080', '--disable-translate', '--disable-extensions', '--disable-background-networking', '--disable-sync', '--disable-default-apps', '--mute-audio', '--no-first-run', '--disable-prompt-on-repost']
-        }
-    }],
+        'moz:firefoxOptions': {
+            // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
+             args: ['-headless']
+          },
     //
     // ===================
     // Test Configurations
