@@ -18,7 +18,8 @@ jobs:
           uses: EnricoMi/publish-unit-test-result-action/composite@v1
           if: always()
           with:
-             files: junit-results/**/*.xml
+             files: junit-results/**/*.xml 
+             name : "UI Test Result"
         - uses: actions/upload-artifact@v1
           if: failure()
           with:
@@ -43,7 +44,8 @@ jobs:
              uses: deblockt/cucumber-report-annotations-action@v1.7
              with:
                access-token: ${{ secrets.GITHUB_TOKEN }}
-               path: "**/cucumber_report.json"
+               path: "**/cucumber_report.json" 
+               name : "API Test Result"
         
         
  
